@@ -1,4 +1,15 @@
 (function() {
+
+	if(typeof _ === 'undefined') {
+		if(typeof module === 'object' && typeof module.exports === 'object') {
+			//this is node.js
+			var _ = require('underscore');
+		}
+		else {
+			throw 'please include the "underscore" library';
+		}
+	}
+
 	var originalUnderscoreTemplateFunction = _.template;
 	var templateHelpers = {};
 
